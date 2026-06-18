@@ -1,0 +1,236 @@
+/* app/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+  }
+}
+
+@layer components {
+  .sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    color: rgb(55 65 81);
+    border-radius: 0.5rem;
+    transition: all 0.2s;
+  }
+  
+  .sidebar-link:hover {
+    background-color: rgb(239 246 255);
+    color: rgb(37 99 235);
+  }
+  
+  .sidebar-link.active {
+    background-color: rgb(239 246 255);
+    color: rgb(37 99 235);
+    font-weight: 500;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in {
+  animation: slideIn 0.3s ease-out;
+}
+
+
+@keyframes luxuryShine {
+  0% {
+    background-position: -120% center;
+  }
+
+  100% {
+    background-position: 120% center;
+  }
+}
+
+.shine-text {
+  position: relative;
+  display: inline-block;
+
+  color: #020617;
+
+  background-image: linear-gradient(
+    110deg,
+    #020617 0%,
+    #020617 44%,
+
+    rgba(56, 189, 248, 0.9) 48%,
+    #ffffff 50%,
+    rgba(56, 189, 248, 0.9) 52%,
+
+    #020617 56%,
+    #020617 100%
+  );
+
+  background-size: 160% 100%;
+  background-repeat: no-repeat;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+
+  animation: luxuryShine 5s linear infinite;
+
+  will-change: background-position;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f8fbff;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #dbeafe; 
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #bfdbfe; 
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #dbeafe #f8fbff;
+}
+
+/* ── Auth pages ── */
+.auth-page {
+  @apply min-h-screen flex flex-col lg:flex-row;
+}
+
+.auth-panel--brand {
+  @apply flex-1 bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 text-white p-8 sm:p-12 lg:p-16 flex items-center justify-center;
+}
+
+.auth-brand-content {
+  @apply max-w-md space-y-6;
+}
+
+.auth-brand-content h1 {
+  @apply text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight;
+}
+
+.auth-brand-content p {
+  @apply text-blue-100 text-sm sm:text-base leading-relaxed;
+}
+
+.auth-features {
+  @apply space-y-2 mt-6;
+}
+
+.auth-features li {
+  @apply flex items-center gap-2 text-sm text-blue-100;
+}
+
+.auth-features li::before {
+  content: "✓";
+  @apply text-green-300 font-bold;
+}
+
+.auth-panel--form {
+  @apply flex-1 flex items-center justify-center p-6 sm:p-8 lg:p-12 bg-gray-50;
+}
+
+.auth-box {
+  @apply w-full max-w-md bg-white rounded-2xl shadow-xl border border-gray-100 p-6 sm:p-8;
+}
+
+.auth-box-header {
+  @apply mb-6 text-center;
+}
+
+.auth-box-header h1 {
+  @apply text-2xl font-bold text-gray-900;
+}
+
+.auth-subtitle {
+  @apply text-sm text-gray-500 mt-1;
+}
+
+.auth-form {
+  @apply space-y-4;
+}
+
+.form-field {
+  @apply space-y-1.5;
+}
+
+.form-field label {
+  @apply block text-sm font-medium text-gray-700;
+}
+
+.form-input {
+  @apply w-full px-4 py-2.5 rounded-lg border border-gray-300 bg-white text-gray-900 text-sm
+    placeholder:text-gray-400 transition-colors
+    focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent;
+}
+
+.form-input--with-icon {
+  @apply pr-10;
+}
+
+.form-input-wrapper {
+  @apply relative;
+}
+
+.form-input-icon {
+  @apply absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors;
+}
+
+.form-input--error {
+  @apply border-red-400 focus:ring-red-400;
+}
+
+.form-error {
+  @apply text-xs text-red-500 mt-1;
+}
+
+.btn {
+  @apply inline-flex items-center justify-center font-medium rounded-lg transition-colors disabled:opacity-60 disabled:cursor-not-allowed;
+}
+
+.btn-primary {
+  @apply w-full py-2.5 px-4 bg-blue-600 text-white text-sm hover:bg-blue-700 active:bg-blue-800;
+}
+
+.auth-footer {
+  @apply text-center text-sm text-gray-500 mt-6;
+}
+
+.auth-footer a {
+  @apply text-blue-600 font-medium hover:underline ml-1;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.15s ease-out;
+}
